@@ -1,4 +1,4 @@
-Seperate odd place integers in a string. You have to return a 4-digit OTP by squarring the digits.
+/*Seperate odd place integers in a string. You have to return a 4-digit OTP by squarring the digits.*/
   
   
   public class Main {
