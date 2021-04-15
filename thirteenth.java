@@ -8,17 +8,16 @@ public class Main {
         return (x*(x+1)==n) ? true : false;
     }
     public static void main(String[] args) {
-        String s="93012562";
-        TreeSet<Integer> al=new TreeSet<>();
+        String s="1242";
+        ArrayList<Integer> al=new ArrayList<>();
         for(int i=0;i<s.length();i++){
-            for(int j=i+1;j<s.length()+1;j++){
-                al.add(Integer.parseInt(s.substring(i,j)));
+            for(int j=i+1;j<=s.length();j++){
+                if(isPronic(Integer.parseInt(s.substring(i,j)))){
+                    al.add(Integer.parseInt(s.substring(i,j)));
+                }
             }
         }
-        for(int e : al){
-           if(isPronic(e)){
-               System.out.print(e+" ");
-           }
-        }
-    }
-}
+          System.out.print(al);
+     }
+ }
+ 
