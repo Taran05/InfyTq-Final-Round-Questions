@@ -2,53 +2,34 @@
 number cannot be made then print -1.*/
 
 
-import java.util.*;
 public class Main {
-    public static boolean isDigit(String s){
-        try{
-        int n=Integer.parseInt(s);
-        if(n>=0 && n<=9)
-            return true;
-        }
-        catch(Exception e){
-            return false;
-        }      
-        return false;
-    }
-    public static ArrayList<Integer> getDuplicateRemovedNumbers(String s){
-        ArrayList<Integer> output=new ArrayList<>();
-        for(String e:s.split("")){
-            if(isDigit(e)){
-                int n=Integer.parseInt(e);
-                if(!output.contains(n)){
-                    output.add(n);
-                }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        ArrayList<Integer> nums=new ArrayList<>();
+        char [] words=s.toCharArray();
+        for(char c : words){
+            if(Character.isDigit(c)){
+                nums.add(Integer.parseInt(String.valueOf(c)));
             }
         }
-        Collections.sort(output,Collections.reverseOrder());
-        return output;
-    }
-    public static String buildLargest(ArrayList<Integer> output){
-        String ans="";
-        int n=output.size();
-        if(!(output.get(n-1)%2==0)){  
-            for(int i=n-1;i>=0;i--){
-                if(output.get(i)%2==0){
-                    int removed=output.remove(i);
-                    output.add(removed);
+        Collections.sort(nums, Collections.reverseOrder());
+        int n=nums.size(),i=1;
+        if(nums.get(n-1)%2!=0){
+            for(i=n-1;i>=0;i--){
+                if(nums.get(i)%2==0){
+                    int removed=nums.remove(i);
+                    nums.add(removed);
                     break;
                 }
             }
         }
-        for(int i=0;i<n;i++){
-                ans+=output.get(i);
-            }
-        return (ans.equals("")?"-1":ans);
-    }
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-       String s=sc.nextLine();
-       System.out.print(buildLargest(getDuplicateRemovedNumbers(s)));
-       
-    }
-}
+        if(i<0){
+            System.out.print(-1);
+        }
+        else{
+        System.out.print(nums.toString());
+        }
+      }
+ }
+ 
