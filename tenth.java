@@ -62,3 +62,78 @@ public class Main {
         }
 }
 }
+
+
+
+
+
+
+
+
+
+// Another Solution maybe more efficient one 
+
+
+
+
+public class Main {
+    public static boolean areEqual(int a, int b, int c, int d){
+        return(a==b && b==c && c==d && d==a);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int row=sc.nextInt();
+        int col=sc.nextInt();
+        int ans=Integer.MAX_VALUE;
+        int mat[][]=new int[row][col];
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                mat[i][j]=sc.nextInt();
+            }
+        }
+        try{
+            for(int i=0;i<row;i++){
+                for(int j=0;j<col;j++){
+                    if(j<=col-4){
+                        if(areEqual(mat[i][j], mat[i][j+1], mat[i][j+2], mat[i][j+3])){
+                             ans=Math.min(ans,mat[i][j]);
+                        }
+                    }
+                    if(i<=row-4){
+                        if(areEqual(mat[i][j], mat[i+1][j], mat[i+2][j], mat[i+3][j])){
+                             ans=Math.min(ans,mat[i][j]);
+                        }
+                    }
+                    if(i<=row-4 && j<=col-4){
+                        if(areEqual(mat[i][j], mat[i+1][j+1], mat[i+2][j+2], mat[i+3][j+3])){
+                             ans=Math.min(ans,mat[i][j]);
+                        }
+                    }
+                    if(i<=row-4 && j>col-4){
+                         if(areEqual(mat[i][j], mat[i+1][j-1], mat[i+2][j-2], mat[i+3][j-3])){
+                             ans=Math.min(ans,mat[i][j]);
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception e){
+            
+        }
+        if(ans==Integer.MAX_VALUE){
+            System.out.print(-1);
+        }
+        else{
+            System.out.print(ans);
+        }
+        
+       
+        
+    }
+}
+
+
+
+
+
+
