@@ -76,6 +76,7 @@ public class Main {
 
 
 
+// "static void main" must be defined in a public class.
 public class Main {
     public static boolean areEqual(int a, int b, int c, int d){
         return(a==b && b==c && c==d && d==a);
@@ -104,13 +105,15 @@ public class Main {
                              ans=Math.min(ans,mat[i][j]);
                         }
                     }
+                    // '\' diagonal
                     if(i<=row-4 && j<=col-4){
                         if(areEqual(mat[i][j], mat[i+1][j+1], mat[i+2][j+2], mat[i+3][j+3])){
                              ans=Math.min(ans,mat[i][j]);
                         }
                     }
-                    if(i<=row-4 && j>col-4){
-                         if(areEqual(mat[i][j], mat[i+1][j-1], mat[i+2][j-2], mat[i+3][j-3])){
+                     // '/' diagonal
+                    if(i>row-4 && j<=col-4){
+                         if(areEqual(mat[i][j], mat[i-1][j+1], mat[i-2][j+2], mat[i-3][j+3])){
                              ans=Math.min(ans,mat[i][j]);
                         }
                     }
@@ -131,9 +134,3 @@ public class Main {
         
     }
 }
-
-
-
-
-
-
