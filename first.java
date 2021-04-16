@@ -12,16 +12,16 @@ public class Main {
        int index_4=numbers.indexOf("4");
        int index_7=numbers.indexOf("7");
         int num1=0;
+        String num2="";
         for(int i=0;i<numbers.size();i++){
             if(i<index_4 || i>index_7){
                 //Integer.parseInt() for converting String into Integer
                 num1+=Integer.parseInt(numbers.get(i));
             }
+            else{
+                 num2+=numbers.get(i);
+            }   
         }
-        String num2="";
-       for(int i=index_4;i<=index_7;i++){
-           num2+=numbers.get(i);
-       }
         //Integer.parseInt() for converting String into Integer
         System.out.print(num1+Integer.parseInt(num2));
     }
