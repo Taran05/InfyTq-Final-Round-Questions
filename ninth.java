@@ -7,7 +7,7 @@ minimum distinct numbers */
 
 class Solution
 {
-    int distinctIds(int arr[], int n, int m)
+    public static int distinctIds(int arr[], int n, int m)
     {
         Map<Integer,Integer> values=new HashMap<Integer,Integer>();
         int size=0, count=0;
@@ -45,5 +45,11 @@ class Solution
         }
         return size-count;
         
+    }
+    public static void main(String [] args){
+        int arr[]=new int[]{1,1,1,2,2,3,3,4,5,6};
+        int n=arr.length;
+        int m=4;
+        System.out.print(distinctIds(arr,n,m));
     }
 }
