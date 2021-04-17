@@ -4,42 +4,27 @@ satisfies the condition, then simply put 'X*/
 
 
 
+import java.util.*;
 public class Main {
-    // This function returns the length of the character part of the main string
-    public static int getLength(String s){
-        int length=0;
-        for(int i=0;i<s.length();i++){
-            try{
-                if((s.charAt(i)>='A' && s.charAt(i)<='Z')||(s.charAt(i)>='a' && s.charAt(i)<='z')){
-                    length++;
-                }
-             }
-            catch(Exception e){
-                break;
-            }
-         }
-        return length;
-    }
-    
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        String s=sc.nextLine();
-        for(String word:s.split(",")){
-            int length=getLength(word);
-            String reduced=word.substring(length+1,word.length());
-            int max=0;
-            for(int i=0;i<reduced.length();i++){
-                if((int)(reduced.charAt(i)-'0')<=length){
-                    max=Math.max(max,(int)(reduced.charAt(i)-'0'));
-                }
-            }
-             if(max==0){
-                 System.out.print('X');
-             }
-            else{
-                System.out.print(word.charAt(max-1));
-            }
-             
+      Scanner sc=new Scanner(System.in);
+      String s=sc.nextLine();
+      for(String e : s.split(",")){
+         String temp[]=e.split(":");
+          String word=temp[0];
+          String num=temp[1];
+          int index=-1;
+          for(int i=0;i<num.length();i++){
+              if(word.length()>=(int)(num.charAt(i)-'0')){
+                  index=Math.max(index,(int)(num.charAt(i)-'0'));
+              }
+          }
+          if(index== -1){
+              System.out.print('X');
+          }
+          else{
+               System.out.print(word.charAt(index-1));
+          }
         }
     }
 }
