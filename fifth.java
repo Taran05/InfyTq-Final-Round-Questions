@@ -17,7 +17,7 @@ public class Main {
                    store.pop();
                }
                else{
-                   ans=i+1;
+                   ans=i;
                    break;
                }
            }
@@ -26,7 +26,7 @@ public class Main {
                    store.pop();
                }
                else{
-                   ans=i+1;
+                   ans=i;
                    break;
                }
            }
@@ -35,13 +35,13 @@ public class Main {
                    store.pop();
                }
                else{
-                   ans=i+1;
+                   ans=i;
                    break;
                }
            }         
        }
          if(!store.empty()){
-               ans=i+1;
+               ans=i;
            }
         return ans;
     }
