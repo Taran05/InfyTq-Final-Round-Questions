@@ -2,7 +2,8 @@
 print it's length, else print -1 */
 
 
- public static int longestFib(int a[],int max){
+class Main{ 
+public static int longestFib(int a[],int max){
         ArrayList<Integer> al=new ArrayList<Integer>();
         int num1=0;
         al.add(num1);
@@ -39,3 +40,4 @@ print it's length, else print -1 */
         System.out.print(length);
     }
 }
+
