@@ -24,7 +24,7 @@ public class Main {
        for(int i=0;i<store.size();i++){
            for(int j=i+1;j<store.size();j++){
                if((store.get(i).toLowerCase()).compareTo(store.get(j).toLowerCase())>0){
-                   String temp=String.valueOf(store.get(i));
+                   String temp=store.get(i);
                    store.set(i,store.get(j));
                    store.set(j,temp);
                }
@@ -40,4 +40,3 @@ public class Main {
         }
    }
 }
-                   
